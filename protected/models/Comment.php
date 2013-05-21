@@ -16,6 +16,8 @@
  * @property integer $performance
  * @property integer $features
  * @property string $comment
+ * @property string $image_url
+ * @property string $finger_id
  */
 class Comment extends CActiveRecord
 {
@@ -49,10 +51,10 @@ class Comment extends CActiveRecord
 			array('nama, email', 'length', 'max'=>30),
 			array('sim', 'length', 'max'=>50),
 			array('telp', 'length', 'max'=>20),
-			array('berlaku, comment', 'safe'),
+			array('berlaku, comment, image_url, finger_id', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nama, sim, berlaku, telp, email, tipe, design, comfort, performance, features, comment', 'safe', 'on'=>'search'),
+			array('id, nama, sim, berlaku, telp, email, tipe, design, comfort, performance, features, comment, image_url, finger_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -85,6 +87,8 @@ class Comment extends CActiveRecord
 			'performance' => 'Performance',
 			'features' => 'Features',
 			'comment' => 'Comment',
+			'image_url' => 'Image Url',
+			'finger_id' => 'Finger',
 		);
 	}
 
@@ -111,6 +115,8 @@ class Comment extends CActiveRecord
 		$criteria->compare('performance',$this->performance);
 		$criteria->compare('features',$this->features);
 		$criteria->compare('comment',$this->comment,true);
+		$criteria->compare('image_url',$this->image_url,true);
+		$criteria->compare('finger_id',$this->finger_id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
