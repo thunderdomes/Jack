@@ -4,7 +4,24 @@ class CommentController extends Controller
 {
 	public function actionList()
 	{
-		 $models = Comment::model()->findAll();
+		 $criteria = new CDbCriteria();
+		 
+		 $criteria->compare('id',@$_GET['id']);
+		 $criteria->compare('nama',@$_GET['nama'],true);
+		 $criteria->compare('sim',@$_GET['sim'],true);
+		 $criteria->compare('berlaku',@$_GET['berlaku'],true);
+		 $criteria->compare('telp',@$_GET['telp'],true);
+		 $criteria->compare('email',@$_GET['email'],true);
+		 $criteria->compare('tipe',@$_GET['tipe']);
+		 $criteria->compare('design',@$_GET['design']);
+		 $criteria->compare('comfort',@$_GET['comfort']);
+		 $criteria->compare('performance',@$_GET['performance']);
+		 $criteria->compare('features',@$_GET['features']);
+		 $criteria->compare('comment',@$_GET['comment'],true);
+		 $criteria->compare('image_url',@$_GET['image_url'],true);
+		 $criteria->compare('finger_id',@$_GET['finger_id'],true);
+		
+		 $models = Comment::model()->findAll($criteria);
 		 if(empty($models)) {
 			  // No
 			  $this->sendResponse(200, CJSON::encode(array()),'application/json');
