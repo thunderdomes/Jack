@@ -20,7 +20,8 @@ class CommentController extends Controller
 		 $criteria->compare('comment',@$_GET['comment'],true);
 		 $criteria->compare('image_url',@$_GET['image_url'],true);
 		 $criteria->compare('finger_id',@$_GET['finger_id'],true);
-		
+		 $criteria->compare('facebook_id',@$_GET['facebook_id'],true);
+		 
 		 $models = Comment::model()->findAll($criteria);
 		 if(empty($models)) {
 			  // No
