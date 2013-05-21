@@ -44,6 +44,12 @@ return array(
 				array('comment/update', 'pattern'=>'comment/<id:\d+>', 'verb'=>'PUT'),
 				array('comment/delete', 'pattern'=>'comment/<id:\d+>', 'verb'=>'DELETE'),
 				array('comment/create', 'pattern'=>'comment', 'verb'=>'POST'),
+				 
+				 array('sortComment/list', 'pattern'=>'sortComment', 'verb'=>'GET'),
+				array('sortComment/view', 'pattern'=>'sortComment/<id:\d+>', 'verb'=>'GET'),
+				array('sortComment/update', 'pattern'=>'sortComment/<id:\d+>', 'verb'=>'PUT'),
+				array('sortComment/delete', 'pattern'=>'sortComment/<id:\d+>', 'verb'=>'DELETE'),
+				array('sortComment/create', 'pattern'=>'sortComment', 'verb'=>'POST'),
 			),
 		),
 		
