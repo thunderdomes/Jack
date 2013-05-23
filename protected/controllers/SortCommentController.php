@@ -9,6 +9,12 @@ class SortCommentController extends Controller
 		 $criteria->compare('id',@$_GET['id']);
 		 $criteria->compare('comment',@$_GET['comment'],true);
 		 $criteria->compare('finger_id',@$_GET['finger_id'],true);
+		 $criteria->compare('tipe',@$_GET['tipe']);
+		 $criteria->compare('design',@$_GET['design']);
+		 $criteria->compare('comfort',@$_GET['comfort']);
+		 $criteria->compare('performance',@$_GET['performance']);
+		 $criteria->compare('features',@$_GET['features']);
+		 
 		 
 		 $models = SortComment::model()->findAll($criteria);
 		 if(empty($models)) {

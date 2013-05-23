@@ -7,6 +7,11 @@
  * @property integer $id
  * @property string $comment
  * @property string $finger_id
+ * @property integer $tipe
+ * @property integer $design
+ * @property integer $comfort
+ * @property integer $performance
+ * @property integer $features
  */
 class SortComment extends CActiveRecord
 {
@@ -36,10 +41,12 @@ class SortComment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('features', 'required'),
+			array('tipe, design, comfort, performance, features', 'numerical', 'integerOnly'=>true),
 			array('comment, finger_id', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, comment, finger_id', 'safe', 'on'=>'search'),
+			array('id, comment, finger_id, tipe, design, comfort, performance, features', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +70,11 @@ class SortComment extends CActiveRecord
 			'id' => 'ID',
 			'comment' => 'Comment',
 			'finger_id' => 'Finger',
+			'tipe' => 'Tipe',
+			'design' => 'Design',
+			'comfort' => 'Comfort',
+			'performance' => 'Performance',
+			'features' => 'Features',
 		);
 	}
 
@@ -80,6 +92,11 @@ class SortComment extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('finger_id',$this->finger_id,true);
+		$criteria->compare('tipe',$this->tipe);
+		$criteria->compare('design',$this->design);
+		$criteria->compare('comfort',$this->comfort);
+		$criteria->compare('performance',$this->performance);
+		$criteria->compare('features',$this->features);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
