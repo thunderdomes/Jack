@@ -13,7 +13,7 @@ class CommentController extends Controller
 		 $criteria->compare('telp',@$_GET['telp'],true);
 		 $criteria->compare('email',@$_GET['email'],true);
 		 $criteria->compare('image_url',@$_GET['image_url'],true);
-		 $criteria->compare('finger_id',@$_GET['finger_id'],true);
+		 $criteria->compare('finger_id',@$_GET['finger_id']);
 		 $criteria->compare('facebook_id',@$_GET['facebook_id'],true);
 		 $criteria->compare('alamat',@$_GET['alamat'],true);
 		 
