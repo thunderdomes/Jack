@@ -41,7 +41,6 @@ class SortComment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('features', 'required'),
 			array('tipe, design, comfort, performance, features', 'numerical', 'integerOnly'=>true),
 			array('comment, finger_id', 'safe'),
 			// The following rule is used by search().

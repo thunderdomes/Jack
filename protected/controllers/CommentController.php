@@ -12,12 +12,6 @@ class CommentController extends Controller
 		 $criteria->compare('berlaku',@$_GET['berlaku'],true);
 		 $criteria->compare('telp',@$_GET['telp'],true);
 		 $criteria->compare('email',@$_GET['email'],true);
-		 $criteria->compare('tipe',@$_GET['tipe']);
-		 $criteria->compare('design',@$_GET['design']);
-		 $criteria->compare('comfort',@$_GET['comfort']);
-		 $criteria->compare('performance',@$_GET['performance']);
-		 $criteria->compare('features',@$_GET['features']);
-		 $criteria->compare('comment',@$_GET['comment'],true);
 		 $criteria->compare('image_url',@$_GET['image_url'],true);
 		 $criteria->compare('finger_id',@$_GET['finger_id'],true);
 		 $criteria->compare('facebook_id',@$_GET['facebook_id'],true);

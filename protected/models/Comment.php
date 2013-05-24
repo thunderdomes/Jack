@@ -10,12 +10,6 @@
  * @property string $berlaku
  * @property string $telp
  * @property string $email
- * @property integer $tipe
- * @property integer $design
- * @property integer $comfort
- * @property integer $performance
- * @property integer $features
- * @property string $comment
  * @property string $image_url
  * @property string $finger_id
  * @property integer $facebook_id
@@ -49,15 +43,15 @@ class Comment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('tipe, design, comfort, performance, features, facebook_id', 'numerical', 'integerOnly'=>true),
+			array('facebook_id', 'numerical', 'integerOnly'=>true),
 			array('nama, email', 'length', 'max'=>30),
 			array('sim', 'length', 'max'=>50),
 			array('telp', 'length', 'max'=>20),
 			array('alamat', 'length', 'max'=>200),
-			array('berlaku, comment, image_url, finger_id', 'safe'),
+			array('berlaku, image_url, finger_id', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nama, sim, berlaku, telp, email, tipe, design, comfort, performance, features, comment, image_url, finger_id, facebook_id, alamat', 'safe', 'on'=>'search'),
+			array('id, nama, sim, berlaku, telp, email, image_url, finger_id, facebook_id, alamat', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,12 +78,6 @@ class Comment extends CActiveRecord
 			'berlaku' => 'Berlaku',
 			'telp' => 'Telp',
 			'email' => 'Email',
-			'tipe' => 'Tipe',
-			'design' => 'Design',
-			'comfort' => 'Comfort',
-			'performance' => 'Performance',
-			'features' => 'Features',
-			'comment' => 'Comment',
 			'image_url' => 'Image Url',
 			'finger_id' => 'Finger',
 			'facebook_id' => 'Facebook',
@@ -114,12 +102,6 @@ class Comment extends CActiveRecord
 		$criteria->compare('berlaku',$this->berlaku,true);
 		$criteria->compare('telp',$this->telp,true);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('tipe',$this->tipe);
-		$criteria->compare('design',$this->design);
-		$criteria->compare('comfort',$this->comfort);
-		$criteria->compare('performance',$this->performance);
-		$criteria->compare('features',$this->features);
-		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('image_url',$this->image_url,true);
 		$criteria->compare('finger_id',$this->finger_id,true);
 		$criteria->compare('facebook_id',$this->facebook_id);
